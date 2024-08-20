@@ -1,0 +1,50 @@
+/tick step
+/data get block -136 66 -117
+/tick step
+/data get block -136 66 -117
+/tick step
+/data get block -136 66 -117
+/tick step
+/data get block -136 66 -117
+/tick step
+/data get block -136 66 -117
+/tick step
+/data get block -136 66 -117
+/tick step
+/tick step 5
+/tick step 10
+/tick unfreeze
+/give Player244 coppergenerators:passive_void_generator
+/give Player894 coppergenerators:copperfied_sculk_catalyst
+/summon minecraft:skeleton
+/time query day
+/time query daytime
+/summon minecraft:skeleton
+/time query daytime
+/summon minecraft:skeleton
+/data get block -136 80 -90
+/data get block -135 80 -90
+/summon minecraft:skeleton
+/data get block
+/data get block -135 80 -90
+/summon minecraft:skeleton
+/time set day
+/summon minecraft:skeleton
+/data get block -135 80 -90
+/summon minecraft:skeleton
+/data get block -135 80 -90
+/data get block -146 82 -84
+/data get block -135 80 -90
+/time set midnight
+/data get block -135 65 -67
+/tick sprint 1d
+/weather clear
+/data get block -135 65 -67
+/fill 87 44 -2
+/fill 87 44 -2 79 54 -18 minecraft:oxidized_copper
+/weather thunder
+/weather clear
+/fill 87 44 -2 79 54 -18 minecraft:oxidized_copper
+/fill -133 78 -86
+/fill -133 78 -86 -153 64 -96 minecraft:oxidized_copper
+/give Player685 copperutilities:rodoflightning

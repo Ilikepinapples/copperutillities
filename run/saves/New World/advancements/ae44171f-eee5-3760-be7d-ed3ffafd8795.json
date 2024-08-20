@@ -1,0 +1,69 @@
+{
+  "minecraft:recipes/building_blocks/oxidized_cut_copper_stairs_from_oxidized_copper_stonecutting": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/oxidized_copper_bulb": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/waxed_oxidized_copper_from_honeycomb": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oxidized_copper_grate": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oxidized_cut_copper": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oxidized_cut_copper_from_oxidized_copper_stonecutting": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2024-08-10 01:07:35 +0100"
+    },
+    "done": false
+  },
+  "minecraft:recipes/building_blocks/oxidized_chiseled_copper_from_oxidized_copper_stonecutting": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oxidized_copper_grate_from_oxidized_copper_stonecutting": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/oxidized_cut_copper_slab_from_oxidized_copper_stonecutting": {
+    "criteria": {
+      "has_oxidized_copper": "2024-08-10 01:07:34 +0100"
+    },
+    "done": true
+  },
+  "DataVersion": 3953
+}

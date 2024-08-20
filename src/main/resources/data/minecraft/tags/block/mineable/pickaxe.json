@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "copperutilities:solar_generator",
+    "copperutilities:thermophotovoltaic_generator",
+    "copperutilities:passive_void_generator",
+    "copperutilities:copperfied_sculk_catalyst"
+  ]
+}
