@@ -7,6 +7,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/copperutillities.client.iml" filepath="$PROJECT_DIR$/.idea/modules/copperutillities.client.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/copperutillities.main.iml" filepath="$PROJECT_DIR$/.idea/modules/copperutillities.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/copperutillities.test.iml" filepath="$PROJECT_DIR$/.idea/modules/copperutillities.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.client.iml" filepath="$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.main.iml" filepath="$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.test.iml" filepath="$PROJECT_DIR$/.idea/modules/entity0.copperutilities.copperutillities.test.iml" />
     </modules>
   </component>
 </project>

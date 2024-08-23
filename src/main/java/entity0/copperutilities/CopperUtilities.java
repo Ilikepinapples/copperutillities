@@ -2,6 +2,7 @@ package entity0.copperutilities;
 
 import entity0.copperutilities.blocks.modBlocks;
 import entity0.copperutilities.blocks.entity.modBlockEntity;
+import entity0.copperutilities.item.modArmourMaterials;
 import entity0.copperutilities.item.modItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -22,6 +23,7 @@ public class CopperUtilities implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Initialising copperutilities.");
+		modArmourMaterials.initialize();
 		modBlocks.initialize();
 		modBlockEntity.registerBlockEntities();
 		modItems.initialize();

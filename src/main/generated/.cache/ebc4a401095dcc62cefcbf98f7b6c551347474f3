@@ -1,5 +1,5 @@
-// 1.21	2024-08-19T22:30:03.0484158	Copper Generators/Block Loot Tables
-cbc9fb2cdab5bd59db81df28ac7cc4cee8dde245 data\coppergenerators\loot_table\blocks\passive_void_generator.json
-11eabf2983a71eea12546ae51543f88c4df8699b data\coppergenerators\loot_table\blocks\thermophotovoltaic_generator.json
-012109c064d774d148258eeda598ab7320baf861 data\coppergenerators\loot_table\blocks\copperfied_sculk_catalyst.json
-83587de4c61777d5716762e5e64963ec9c8281fb data\coppergenerators\loot_table\blocks\solar_generator.json
+// 1.21	2024-08-20T23:22:39.3925323	Copper Generators/Block Loot Tables
+c310e01933404452423ce2ead7c5c2de8a7de90f data\copperutilities\loot_table\blocks\solar_generator.json
+0c061a45212db1d4b7c9fba59a7f21ee06cd2658 data\copperutilities\loot_table\blocks\copperfied_sculk_catalyst.json
+a8b74ce2a12ff77d70c721d80bcf81c82cd2e13b data\copperutilities\loot_table\blocks\passive_void_generator.json
+b2df493a89480f49872f0e21fa064bb29230145f data\copperutilities\loot_table\blocks\thermophotovoltaic_generator.json

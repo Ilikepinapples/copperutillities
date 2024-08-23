@@ -12,8 +12,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
-
 public class rodOfLightning extends Item implements copperNetworkPowerAPI {
+    private boolean clicked = false;
     public rodOfLightning(Settings settings) {
         super(settings);
 
@@ -21,18 +21,20 @@ public class rodOfLightning extends Item implements copperNetworkPowerAPI {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        CopperUtilities.LOGGER.info(Arrays.toString(copperNetworkAPI().networkPower));
+        if (clicked) {
+            clicked = false;
+            if (copperNetworkAPI().canConsume(10000)) {
+                copperNetworkAPI().consume(10000);
+                world.createExplosion(entity, entity.getX(), entity.getY(), entity.getZ(), 0.01f, World.ExplosionSourceType.TNT);
+            }
+        }
         copperNetworkAPI().cleanupNetwork();
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        CopperUtilities.LOGGER.info(Arrays.toString(copperNetworkAPI().networkPower));
-        if (copperNetworkAPI().canConsume(10000)) {
-            copperNetworkAPI().consume(10000);
-            world.createExplosion(user, user.getX(), user.getY(), user.getZ(), 0.01f, World.ExplosionSourceType.TNT);
-        }
+        clicked = true;
         return super.use(world, user, hand);
     }
 
