@@ -2,8 +2,7 @@ package entity0.copperutilities.item.armour;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import entity0.coppernetworks.CopperNetworkPowerClass;
-import entity0.coppernetworks.copperNetworkPowerAPI;
+import entity0.coppernetworks.*;
 import entity0.copperutilities.CopperUtilities;
 import net.minecraft.component.Component;
 import net.minecraft.component.ComponentType;
@@ -32,8 +31,7 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
-public class copperLeggings extends ArmorItem implements copperNetworkPowerAPI {
-    CopperNetworkPowerClass copperPowerInstance = new CopperNetworkPowerClass();
+public class copperLeggings extends ArmorItem implements copperNetworkPowerItemAPI {
     public copperLeggings(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
@@ -42,27 +40,26 @@ public class copperLeggings extends ArmorItem implements copperNetworkPowerAPI {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
-        if (this.copperNetworkAPI().canConsume(50)) {
-        //    if (Energy <= 1000) {
-                this.copperNetworkAPI().consume(50);
-        //        Energy = Energy + 50;
-        //    }
-        //}
-        //if (Energy >= 50) {
-        if ((stack.contains(DataComponentTypes.TRIM)) && (stack.get(DataComponentTypes.TRIM).getMaterial().getIdAsString().equals("minecraft:copper"))) {
-                stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
+        if (!world.isClient) {
+            if (copperNetworkAPI(stack).canConsume(50)) {
+                copperNetworkAPI(stack).consume(50);
+                if ((stack.contains(DataComponentTypes.TRIM)) && (stack.get(DataComponentTypes.TRIM).getMaterial().getIdAsString().equals("minecraft:copper"))) {
+                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
+                } else {
+                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0.2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), true));
+                }
             } else {
-                stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0.2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), true));
+                stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
             }
-            //Energy = Energy - 50;
-        } else {
-            stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
+            CopperUtilities.LOGGER.info(String.valueOf(copperNetworkAPI(stack).networkPower[0]));
+            copperNetworkAPI(stack).cleanupNetwork();
         }
-        CopperUtilities.LOGGER.info(String.valueOf(copperNetworkAPI().networkPower[0]));
-        copperNetworkAPI().cleanupNetwork();
     }
+
     @Override
-    public CopperNetworkPowerClass copperNetworkAPI() {
-        return copperPowerInstance;
+    public copperNetworkItemPowerClass copperNetworkAPI(ItemStack itemStack) {
+        CopperUtilities.LOGGER.info(itemStack.toString());
+        CopperUtilities.LOGGER.info(itemStack.get(ModComponents.COPPER_POWER_COMPONENT).toString());
+        return itemStack.get(ModComponents.COPPER_POWER_COMPONENT);
     }
 }

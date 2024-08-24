@@ -1,5 +1,8 @@
 package entity0.copperutilities.item;
 
+import entity0.coppernetworks.CopperNetworkPowerClass;
+import entity0.coppernetworks.ModComponents;
+import entity0.coppernetworks.copperNetworkItemPowerClass;
 import entity0.copperutilities.CopperUtilities;
 import entity0.copperutilities.blocks.modBlocks;
 import entity0.copperutilities.item.armour.copperBoots;
@@ -36,7 +39,8 @@ public class modItems {
     public static final Item RODOFLIGHTNING = register(new rodOfLightning(new Item.Settings()), "rodoflightning");
     public static final Item COPPERHELMET = register(new copperHelmet(modArmourMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))), "copper_helmet");
     public static final Item COPPERCHESTPLATE = register(new copperChestplate(modArmourMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))), "copper_chestplate");
-    public static final Item COPPERLEGGINGS = register(new copperLeggings(modArmourMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))), "copper_leggings");
+    public static final Item COPPERLEGGINGS = register(new copperLeggings(modArmourMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Settings()//.component(ModComponents.COPPER_POWER_COMPONENT, new copperNetworkItemPowerClass(12))
+             .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))), "copper_leggings");
     public static final Item COPPERBOOTS = register(new copperBoots(modArmourMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))), "copper_boots");
 
 }
