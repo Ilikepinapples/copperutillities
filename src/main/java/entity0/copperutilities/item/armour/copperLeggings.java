@@ -16,6 +16,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.item.trim.ArmorTrim;
 import net.minecraft.item.trim.ArmorTrimMaterial;
@@ -24,7 +25,11 @@ import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.screen.slot.Slot;
+import net.minecraft.util.ClickType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.Collections;
@@ -54,6 +59,12 @@ public class copperLeggings extends ArmorItem implements copperNetworkPowerItemA
             CopperUtilities.LOGGER.info(String.valueOf(copperNetworkAPI(stack).networkPower[0]));
             copperNetworkAPI(stack).cleanupNetwork();
         }
+    }
+
+    @Override
+    public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
+        stack.set(ModComponents.COPPER_POWER_COMPONENT, new copperNetworkItemPowerClass(1));
+        return super.onStackClicked(stack, slot, clickType, player);
     }
 
     @Override
