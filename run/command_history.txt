@@ -1,30 +1,3 @@
-/data get block -136 66 -117
-/fill -136 71 -122
-/fill -136 71 -122 -102 71 -143 minecraft:copper_block
-/fill -136 72 -122 -102 72 -143 copperutilities:solar_generator
-/weather clear
-/data get block -136 66 -117
-/tick rate 20
-/data get block -136 66 -117
-/time set day
-/give Player80 copperutilities:copper_leggings[minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.armor",name:"",amount:1,operation:"add_value",id:"leg_speed",slot:"legs"}]}] 1
-/give Player80 copperutilities:copper_leggings[minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.movement_speed",name:"",amount:1,operation:"add_value",id:"leg_speed",slot:"legs"}]}] 1
-/give Player80 copperutilities:copper_leggings[minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.movement_speed",name:"",amount:2,operation:"add_value",id:"leg_speed",slot:"legs"}]}] 1
-/give Player408 copperutilities:copper_leggings[minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.movement_speed",name:"",amount:2,operation:"add_value",id:"leg_speed",slot:"legs"}]}] 1
-/give Player408 minecraft:diamond_leggings[minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.movement_speed",name:"",amount:2,operation:"add_value",id:"leg_speed",slot:"legs"}]}] 1
-/fill -137 72 -121
-/fill -137 72 -121 -168 72 -130 minecraft:copper_block
-/fill -164 72 -120
-/fill -164 72 -120 -140 72 -118 minecraft:copper_block
-/fill -101 72 -122
-/fill -101 72 -122 -101 71 -143 minecraft:copper_block
-/fill -101 73 -143
-/fill -101 73 -143 -101 73 -122 copperutilities:solar_generator
-/time set day
-/data get block -136 66 -117
-/time set day
-/data get block -136 66 -117
-/weather clear
 /fill 80 43 -18
 /fill 80 43 -18 87 43 -2 copperutilities:passive_void_generator
 /tp Player878
@@ -47,4 +20,31 @@
 /fill -300 71 130 -280 71 121 copperutilities:solar_generator
 /give @p copperutilities:rodoflightning
 /data get entity @n[type=!minecraft:player]
+/time set day
+/weather clear
+/time set day
+/time set night
+/time set day
+/fill -301 70 111
+/fill -301 70 111 -493 72 113 glass
+/fill -493 71 112
+/fill -493 71 112 -301 70 112 minecraft:copper_block
+/fill -301 71 112
+/fill -301 71 112 -493 71 112 minecraft:water
+/fill -299 73 114
+/fill -299 73 114 -300 71 110 air
+/time set day
+/fill -303 72 108
+/fill -303 72 108 -299 70 107 air
+/fill -323 73 114
+/fill -323 73 114 -496 74 116 air
+/fill -300 73 114
+/fill -300 73 114 -496 73 116 minecraft:copper_block
+/fill -492 75 116
+/fill -492 75 116 -348 75 114 air
+/fill -323 73 114 -496 74 116 air
+/fill -300 73 114 -496 73 116 minecraft:copper_block
+/fill -504 63 116
+/fill -504 63 116 -528 63 114 minecraft:copper_block
+/effect clear Player689
 /time set day

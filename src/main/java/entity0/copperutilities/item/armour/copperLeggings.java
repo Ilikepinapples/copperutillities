@@ -32,7 +32,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
@@ -40,7 +42,6 @@ public class copperLeggings extends ArmorItem implements copperNetworkPowerItemA
     public copperLeggings(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
-    //int Energy;
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
@@ -49,28 +50,20 @@ public class copperLeggings extends ArmorItem implements copperNetworkPowerItemA
             if (copperNetworkAPI(stack).canConsume(50)) {
                 copperNetworkAPI(stack).consume(50);
                 if ((stack.contains(DataComponentTypes.TRIM)) && (stack.get(DataComponentTypes.TRIM).getMaterial().getIdAsString().equals("minecraft:copper"))) {
-                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
+                    List<AttributeModifiersComponent.Entry> Attributes = new ArrayList<>();
+                    Attributes.add((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS"))));
+                    Attributes.add((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_WATER_MOVEMENT_EFFICIENCY, new EntityAttributeModifier(Identifier.of("leggings_swim_speed"), 2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS"))));
+                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Attributes, false));
                 } else {
-                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0.2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), true));
+                    List<AttributeModifiersComponent.Entry> Attributes = new ArrayList<>();
+                    Attributes.add((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0.2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS"))));
+                    Attributes.add((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_WATER_MOVEMENT_EFFICIENCY, new EntityAttributeModifier(Identifier.of("leggings_swim_speed"), 0.2, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS"))));
+                    stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Attributes, false));
                 }
             } else {
                 stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(Collections.singletonList((new AttributeModifiersComponent.Entry(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(Identifier.of("leggings_speed"), 0, EntityAttributeModifier.Operation.valueOf("ADD_VALUE")), AttributeModifierSlot.valueOf("LEGS")))), false));
             }
-            CopperUtilities.LOGGER.info(String.valueOf(copperNetworkAPI(stack).networkPower[0]));
             copperNetworkAPI(stack).cleanupNetwork();
         }
-    }
-
-    @Override
-    public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
-        stack.set(ModComponents.COPPER_POWER_COMPONENT, new copperNetworkItemPowerClass(1));
-        return super.onStackClicked(stack, slot, clickType, player);
-    }
-
-    @Override
-    public copperNetworkItemPowerClass copperNetworkAPI(ItemStack itemStack) {
-        CopperUtilities.LOGGER.info(itemStack.toString());
-        CopperUtilities.LOGGER.info(itemStack.get(ModComponents.COPPER_POWER_COMPONENT).toString());
-        return itemStack.get(ModComponents.COPPER_POWER_COMPONENT);
     }
 }
