@@ -23,6 +23,16 @@ public class modBlockEntity {
             Identifier.of(CopperUtilities.MOD_ID, "passive_void_generator_block_entity"),
             BlockEntityType.Builder.create(PassiveVoidGeneratorBlockEntity::new, modBlocks.PASSIVEVOIDGENERATOR).build()
     );
+    public static final BlockEntityType<CopperAnvilBlockEntity> COPPER_ANVIL_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            Identifier.of(CopperUtilities.MOD_ID, "copper_anvil_block_entity"),
+            BlockEntityType.Builder.create(CopperAnvilBlockEntity::new, modBlocks.COPPERANVIL).build()
+    );
+    public static final BlockEntityType<CopperLightBlockEntity> COPPER_LIGHT_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            Identifier.of(CopperUtilities.MOD_ID, "copper_light_block_entity"),
+            BlockEntityType.Builder.create(CopperLightBlockEntity::new, modBlocks.COPPERLIGHT).build()
+    );
     public static final BlockEntityType<CopperfiedSculkCatalystBlockEntity> COPPERFIED_SCULK_CATALYST = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             Identifier.of(CopperUtilities.MOD_ID, "copperfied_sculk_catalyst"),

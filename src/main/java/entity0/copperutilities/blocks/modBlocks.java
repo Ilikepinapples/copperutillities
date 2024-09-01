@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -55,5 +56,20 @@ public class modBlocks {
             new CopperfiedSculkCatalyst(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER)),
             "copperfied_sculk_catalyst",
             true
+    );
+    public static final Block COPPERANVIL = register(
+            new CopperAnvil(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER)),
+            "copper_anvil",
+            true
+    );
+    public static final Block COPPERLIGHT = register(
+            new CopperLight(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER)),
+            "copper_light",
+            true
+    );
+    public static final Block LIGHT = register(
+            new Light(AbstractBlock.Settings.create().noCollision().air().dropsNothing().noBlockBreakParticles().replaceable().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY).pistonBehavior(PistonBehavior.DESTROY).luminance(state -> 15)),
+            "light_block",
+            false
     );
 }
